@@ -1,0 +1,31 @@
+[
+    {
+        "id": "RP2023ML01",
+        "Title": "Deep Learning Architectures for Facial Emotion Analysis",
+        "Type": "Research Paper",
+        "Year": "2023",
+        "Description": "A research paper published to SIET 2023 comparing two architectures (VGG19, EfficientNetB2) for facial emotion analysis. Written as part of \"Machine Learning\" as well as  \"Research Methodology for Computer Science\" projects for my fourth semester at Binus University alongside two of my classmates and with guidance of two lecturers.",
+        "Skills": {
+            "Python": "The experiment utilizes many libraries, including but not limited to: pytorch, seaborn, scipy, and pandas",
+            "Academic Writing": "Being a research paper, formal english was required to be used.",
+            "Machine Learning": "2 Different machine learning architectures were utilized for this experiment.",
+            "Data Analysis": "Results from the experiment needed to be analysed and compared to each other to create the final work."
+        },
+        "Link": "",
+        "Image": "/images/nextJs.png"
+    },
+    {
+        "id": "WEB2025TSX01",
+        "Title": "This Website!",
+        "Type": "Website",
+        "Year": "2025",
+        "Description": "This website that you are seeing right now! Made using next.js from start.",
+        "Skills": {
+            "JSON": "JSON is used to feed data to the site, including this very text!",
+            "CSS": "CSS is used to style the whole site.",
+            "TypeScript": "As Next.js supports TypeScript, I decided to use it for the whole site!"
+        },
+        "Link": "",
+        "Image": "/images/nextJs.png"
+    }
+]
