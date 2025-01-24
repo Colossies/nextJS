@@ -1,6 +1,6 @@
 [
     {
-        "id": "RP2023ML01",
+        "id": "RP2023ML_01",
         "Title": "Deep Learning Architectures for Facial Emotion Analysis",
         "Type": "Research Paper",
         "Year": "2023",
@@ -15,14 +15,14 @@
         "Image": "/images/nextJs.png"
     },
     {
-        "id": "WEB2025TSX01",
+        "id": "WEB2025NJS_01",
         "Title": "This Website!",
         "Type": "Website",
         "Year": "2025",
-        "Description": "This website that you are seeing right now! Made using next.js from start.",
+        "Description": "This website that you are seeing right now! Made using next.js from scratch.",
         "Skills": {
             "JSON": "JSON is used to feed data to the site, including this very text!",
-            "CSS": "CSS is used to style the whole site.",
+            "CSS": "CSS, with the help of Tailwind is used to style the whole site.",
             "TypeScript": "As Next.js supports TypeScript, I decided to use it for the whole site!"
         },
         "Link": "",

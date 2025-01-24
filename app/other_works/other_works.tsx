@@ -1,33 +1,32 @@
 import  Image  from 'next/image';
 import {get_other_works as getWorks} from "@/lib/exp";
-export default async function Page() {
+export default async function OtherWorks() {
   const works = await getWorks();
   return (
-    <div className = "max-w-2xl lg:max-w-none ">
-      {works.map((o) => (
-        <div key = {o.id} className = "mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-16 lg:px-20 lg:my-12">
-          <div className = "-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-1 lg:row-span-2 lg:row-start-1 lg:overflow-hidden flex justify-center"><Image
+    <div className = "max-w-2xl lg:max-w-none px-[10%] lg:px-[13%]">
+      {works.map((o, index) => (
+        <div key = {o.id} className = "mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-16 lg:py-12 lg:h-svh">
+          <div className = {`-ml-12 lg:-mt-12 px-12 lg:pt-12 lg:top-4 ${index % 2 === 1 ? 'lg:col-start-2  ml-0' : 'lg:col-start-1'} lg:row-span-2 lg:row-start-1 lg:overflow-hidden lg:relative lg:h-full`}><Image
             src = {o.Image}
             alt  =  {o.Title}
-            width = {150}
-            height = {150}
+            width = {100}
+            height = {300}
             blurDataURL='data:...'
             placeholder='blur'
-            className = "w-[12rem] max-w-none rounded-xl bg-gray-900 shadow-xl ring-1 ring-gray-400/10 sm:w-[16rem]"
+            className = "w-full rounded-xl shadow-2xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none"
             /></div>
-          <div className = "-ml-12 -mt-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+          <div className = {`-ml-12 lg:-mt-12 px-12 pb-12 lg:pt-12 lg:sticky lg:top-4 ${index % 2 === 1 ? 'lg:col-start-1' : 'lg:col-start-2 -mr-12 ml-0'} lg:row-span-2 lg:row-start-1 lg:overflow-hidden`}>
             <div>
-              <h2 className = "font-extrabold mb-1 text-2xl">{o.Title}</h2>
+              <h2 className = "font-extrabold mb-1 lg:mb-4 text-2xl">{o.Title}</h2>
             </div>
 
-            <div>
+            <div className = "mb-2 lg:mb-6">
               <p>{o.Description}</p>
               {o.Link && o.Link.trim() !== "" && (
                 <p>Link to work: <a href={o.Link} target="_blank" rel="noopener noreferrer">{o.Link}</a></p>
               )}
 
             </div>
-            {/* "flex flex-row flex-wrap columns-1 lg:columns-2 w-full mt-2" */}
             <div className = "columns-1 lg:columns-2 w-full mt-2 break-inside-avoid">
               {Object.keys(o.Skills).map((s, idx) => (
                 <div key = {idx} className = "p-3 w-full lg:w-prose mb-4 mr-4 border-solid border-2 border-black rounded-lg h-fit break-inside-avoid">
