@@ -1,6 +1,7 @@
 import '../styles/global.css';
 import Header from  './component/header';
-import OtherWorks from './other_works/other_works'
+import Footer from './component/footer';
+
 export default function RootLayout({
   children,
 }: {
