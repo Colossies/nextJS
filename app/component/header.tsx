@@ -2,8 +2,8 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'About Me', href: '#', current: false },
+  { name: 'About Me', href: '#'},
+  { name: 'Skills', href: '#'},
 ]
 
 
@@ -16,7 +16,7 @@ export default function Header() {
     <>
       <div className="fixed top-0 w-screen z-[100]">
         <Disclosure as="nav" className="bg-gray-800">
-          <div className="mx-auto max-w-7xl">
+          <div className="mx-auto w-full">
             <div className="flex h-16 items-center justify-between">
               <div className="flex items-center">
                 <div className="hidden md:block">
@@ -24,11 +24,10 @@ export default function Header() {
                     {navigation.map((item) => (
                       <a
                         key={item.name}
-                        href={item.href}
-                        aria-current={item.current ? 'page' : undefined}
+
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'rounded-md px-3 py-2 text-sm font-medium',
+                          'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          'rounded-md px-3 py-2 text-sm font-bold text-lg',
                         )}
                       >
                         {item.name}
@@ -56,9 +55,8 @@ export default function Header() {
                   key={item.name}
                   as="a"
                   href={item.href}
-                  aria-current={item.current ? 'page' : undefined}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                    'text-gray-300 hover:bg-gray-700 hover:text-white',
                     'block rounded-md px-3 py-2 text-base font-medium',
                   )}
                 >

@@ -3,11 +3,12 @@ import {get_other_works as getWorks} from "@/lib/exp";
 export default async function OtherWorks() {
   const works = await getWorks();
   return (
-    <div className = "w-full h-full p-0">
+    <div className = "w-full min-h-full p-0">
       <div className = "max-w-2xl lg:max-w-none px-[10%] lg:px-[13%]">
         {works.map((o, index) => (
           <div key = {o.id} id = {`section-${o.id}`} className = "mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-16 lg:py-12 lg:h-svh">
-            <div className = {`-ml-12 lg:-mt-12 px-12 lg:pt-12 lg:top-4 ${index % 2 === 1 ? 'lg:col-start-2  lg:ml-0' : 'lg:col-start-1'} lg:row-span-2 lg:row-start-1 lg:overflow-hidden lg:relative lg:h-full`}><Image
+            <div className = {`-ml-12 lg:-mt-12 px-12 lg:pt-12 lg:top-4 ${index % 2 === 1 ? 'lg:col-start-2  lg:ml-0' : 'lg:col-start-1'} lg:row-span-2 lg:row-start-1 lg:overflow-hidden lg:relative lg:h-full`}>
+              <Image
               src = {o.Image}
               alt  =  {o.Title}
               width = {100}

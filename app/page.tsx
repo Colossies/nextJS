@@ -1,27 +1,40 @@
-import OtherWorks from './other_works/other_works'
-// Palette #FEF3C7
+import OtherWorks from './sections/other_works'
+import Timeline from './sections/timeline'
+import Image from 'next/image';
+
 export default function Page() {
   return (
     <>
-    <div className = "h-svh bg-gradient-to-br to-[#435979] from-[#314158] pt-16 flex flex-col lg:grid lg:grid-cols-3">
-      <div className = "lg:col-start-1 lg:h-full w-full lg:p-0 flex flex-col lg:px-[5%]">
-        {/* Qualifications */}
-          <h3 className = "font-bold text-4xl lg:font-left">Hello, I am</h3>
-          <h1 className = "tracking-wider font-extrabold text-5xl font-center lg:font-left">Bryan Chandra</h1>
-          <h1 className = "tracking-wide font-extrabold text-4xl lg:font-left text-[#b9469b]">Software Developer</h1>
-      </div>
-      <div className = "lg:col-start-2 lg:h-full w-full">
-        {/* Profile picture*/}
-        <div></div>
-      </div>
-      <div className = "lg:col-start-3 lg:h-full w-full">
-        {/* Contact info & social media, cv download button */}
-        <div>
-
+    <div className = "min-h-svh bg-gradient-to-br to-[#435979] from-[#314158] py-16 flex flex-col items-center">
+      <div className = "flex flex-col text-center mb-[5%] w-full items-center">
+        {/* Profile Picture, short intro */}
+        <div className = "mt-16 lg:mt-[12vh] rounded-full p-0 w-fit h-fit">
+          <Image
+            src = "/images/pp.png" 
+            alt = "Bryan Chandra"
+            width = {150}
+            height = {150}
+            className = "object-contain rounded-full"
+          />
         </div>
-        <button></button>
+          
+          <h1 className = "tracking-wider font-bold text-5xl font-center lg:font-left text-gray-200 mt-4  mb-8">Bryan Chandra</h1>
+          <p className = "text-xl lg:text-2xl max-w-[86vw] lg:max-w-[56vw] text-gray-100 break-words whitespace-pre-wrap">
+            I am very interested in computers, both software and hardware.
+            I have assembled, repaired, and refurbished computers. I have also written several computer programs and websites.
+            I am always interested in oppurtunities to expand my skillsets and also grow my current skills, so challenges are always welcome!
+          </p>
+      </div>
+      <div className = "w-full lg:px-[24%] flex flex-row justify-center">
+        {/*Qualification or other buttons*/}
+        <a href = "/images/pp.png" download className = "w-[30%] mx-4">
+          <button className = "w-full h-16 rounded-lg border-2 border-grey-200">
+            <span className = "text-white font-bold tracking-wider text-xl">Download CV</span>
+          </button>
+        </a>
       </div>
     </div>
+    <Timeline />
     <OtherWorks />
     </>
   )
