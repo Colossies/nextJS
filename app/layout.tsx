@@ -1,6 +1,6 @@
 import '../styles/global.css';
-import Header from  './component/header';
-import Footer from './component/footer';
+import Header from  './ui/header';
+import Footer from './ui/footer';
 
 
 export default function RootLayout({

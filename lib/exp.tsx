@@ -17,3 +17,15 @@ export async function get_timeline() {
   const r = JSON.parse(file);
   return r;
 }
+
+export async function get_skills_major() {
+  const file = await fs.readFile(process.cwd() + '/public/data/major_skills.json', 'utf8');
+  const r = JSON.parse(file);
+  return r;
+}
+
+export async function get_skills_minor() {
+  const file = await fs.readFile(process.cwd() + '/public/data/skills.json', 'utf8');
+  const r = JSON.parse(file);
+  return r;
+}
