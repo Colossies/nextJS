@@ -1,0 +1,17 @@
+[
+    {
+        "id": "1",
+        "name": "Python",
+        "level": "3",
+        "remark": "",
+        "Image": "/images/python.png",
+        "subskills": {
+            "subskill1": {
+                "id": "",
+                "name": "",
+                "level": "",
+                "remark": ""
+            }
+        }
+    }
+]
