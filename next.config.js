@@ -7,7 +7,8 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     loader: "custom",
-    loaderFile: "imageloader.js"
+    loaderFile: "imageloader.js",
+    unoptimized: true,
   },
 };
 
