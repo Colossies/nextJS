@@ -1,12 +1,13 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
-  basePath: "/nextJs",
+  basePath: "/nextJS",
   assetPrefix: './',
   output: "export",
   reactStrictMode: true,
   images: {
-    unoptimized: true,
+    loader: "custom",
+    loaderFile: "imageloader.js"
   },
 };
 
