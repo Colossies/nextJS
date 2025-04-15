@@ -11,7 +11,7 @@ export default function Page() {
         {/* Profile Picture, short intro */}
         <div className = "mt-16 lg:mt-[12vh] rounded-full p-0 w-fit h-fit">
           <Image
-            src = "/images/pp.png" 
+            src = "/nextJS/images/pp.png" 
             alt = "Bryan Chandra"
             width = {150}
             height = {150}
@@ -28,7 +28,7 @@ export default function Page() {
       </div>
       <div className = "w-full lg:px-[24%] flex flex-row justify-center">
         {/*Qualification or other buttons*/}
-        {/* <a href = "/images/pp.png" download className = "w-[30%] mx-4">
+        {/* <a href = "/nextJS/images/pp.png" download className = "w-[30%] mx-4">
           <button className = "w-full h-16 rounded-lg border-2 border-grey-200">
             <span className = "text-white font-bold tracking-wider text-xl">Download CV</span>
           </button>
@@ -42,7 +42,7 @@ export default function Page() {
         <a href = "https://www.instagram.com/_bryan_chandra?igsh=dmhkZ3Rvc284OWg0" rel = "noopener noreferrer" target = "_blank">
           <div className = "flex flex-row w-[80%] lg:w-[400px] items-center p-2 rounded-lg border-2 border-[#C13584]">
             <Image 
-              src = "/images/instagram_logo.png"
+              src = "/nextJS/images/instagram_logo.png"
               alt = ""
               width = {50}
               height = {50}
