@@ -1,27 +1,56 @@
 [
     {
-        "id": "edu_hs_penabur",
+        "id": "edu_hs_penabur_start",
         "title": "SMAK Penabur Kota Tangerang",
         "type": "Education",
         "subtype": "High School",
         "description": "I attended Penabur, which is a reputable high school in Indonesia. Penabur offers two specializations: social science, and natural science. From the two, I took natural science, which offers me more advanced math, physics, and gives me the oppurtunity to study chemistry.",
-        "date_start": "2018",
-        "date_end": "2021",
-        "link": "#",
+        "date": "2018",
+        "link": "pdf/Highschool_transcript.pdf",
         "link_to": "Transcript",
         "google_maps": "https://maps.app.goo.gl/91ne56zQ19ZPME9z8"
     },
-        {
-        "id": "edu_uni_binus_cs",
+    {
+        "id": "edu_hs_penabur_end",
+        "title": "SMAK Penabur Kota Tangerang - Finish",
+        "type": "Education",
+        "subtype": "High School",
+        "description": "I finished high school smoothly in 2021.",
+        "date": "2021",
+        "link": "pdf/Highschool_transcript.pdf",
+        "link_to": "Transcript",
+        "google_maps": "https://maps.app.goo.gl/91ne56zQ19ZPME9z8"
+    },
+    {
+        "id": "edu_uni_binus_cs_start",
         "title": "Binus University (Computer Science)",
         "type": "Education",
         "subtype": "Undergraduate",
-        "description": "For my undergraduate program, I chose computer science because I am interested in computers in general. During my study, I was able to also do a study abroad in University of Nottingham Malaysia for one semester.",
-        "date_start": "2021",
-        "date_end": "2025",
-        "link": "#",
+        "description": "For my undergraduate program, I chose computer science because I am interested in computers in general. Studying here, I took the general classes like \"Programming in C\" and \"Algorithms and Programming\", and also several more in-depth classes like \"AI Programming\" and also took a class outside my comfort zone such as \"Social Media Broadcasting\".",
+        "date": "2021",
+        "link": "pdf/Transcript_binus_combined.pdf",
         "link_to": "Transcript",
         "google_maps": "https://maps.app.goo.gl/oHhmR6GqBhA8EkC66"
+    },
+    {
+        "id": "edu_uni_binus_cs_unmc",
+        "title": "University of Nottingham Malaysia Campus - Study Abroad",
+        "type": "Education",
+        "subtype": "Undergraduate",
+        "description": "During my study at Binus University, I took a program to study abroad for one semester in University of Nottingham Malaysia Campus (UNMC) for one semester. Here, I took \"Computer Security\", \"AI Methodology\", \"Designing Intelligent Agent\", and \"Parallel Programming\". Here I experienced a foreign experience as well as a different grading system, which this university uses UK grading system.",
+        "date": "2024",
+        "link": "pdf/Transcript_UNMC.pdf",
+        "link_to": "Transcript",
+        "google_maps": "https://maps.app.goo.gl/SL78oQnYEfA8nHwG8"
+    },
+    {
+        "id": "ipeka_intern",
+        "title": "IPEKA Christian School",
+        "type": "Internship",
+        "subtype": "",
+        "description": "I took an internship program at IPEKA Christian School as a website developer. I took projects for 3 of their websites (arrowstar.org, haiguru.id, ksitangerang.id) and also other projects such as being one of the actor for Haiguru video marketing. The biggest project I took was creating a local chatbot for the 3 websites that does not require any cloud services.",
+        "date": "2024",
+        "google_maps": "https://maps.app.goo.gl/wKMwcFMpgYrPUiez9"
     }
     
 ]

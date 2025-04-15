@@ -11,7 +11,6 @@ export default function Level({level}){
                     clipPath: "polygon(0% 0%, 80% 0%, 100% 50%, 80% 100%, 0% 100%, 20% 50%)",
                 }}
                 >
-                    
                 </div>
             ))}
         </div>

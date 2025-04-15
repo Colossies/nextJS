@@ -14,7 +14,7 @@ function classNames(...classes) {
 export default function Header() {
   return (
     <>
-      <div className="fixed top-0 w-screen z-[100]">
+      <div className="w-screen z-[100]">
         <Disclosure as="nav" className="bg-gray-800">
           <div className="mx-auto w-full">
             <div className="flex h-16 items-center justify-between">
@@ -24,7 +24,7 @@ export default function Header() {
                     {navigation.map((item) => (
                       <a
                         key={item.name}
-
+                        href = {item.href}
                         className={classNames(
                           'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-bold text-lg',

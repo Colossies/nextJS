@@ -11,7 +11,7 @@ export default function RootLayout({
   return (
     <html lang="en" className = "h-full bg-gray-100">
       <body className = "h-full">
-        <Header />
+        {/* <Header /> */}
         <div className = "flex flex-col flex-start z-[1]">
           {children}
         </div>

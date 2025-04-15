@@ -7,12 +7,28 @@
         "Description": "A research paper published to SIET 2023 comparing two architectures (VGG19, EfficientNetB2) for facial emotion analysis. Written as part of \"Machine Learning\" as well as  \"Research Methodology for Computer Science\" projects for my fourth semester at Binus University alongside two of my classmates and with guidance of two lecturers.",
         "Skills": {
             "Python": "The experiment utilizes many libraries, including but not limited to: pytorch, seaborn, scipy, and pandas",
-            "Academic Writing": "Being a research paper, formal english was required to be used.",
+            "Academic Writing": "Being a research paper, formal english was required.",
             "Machine Learning": "2 Different machine learning architectures were utilized for this experiment.",
             "Data Analysis": "Results from the experiment needed to be analysed and compared to each other to create the final work."
         },
+        "Link": "https://dl.acm.org/doi/abs/10.1145/3626641.3627492",
+        "Image": "/images/siet2023.jpg"
+    },
+    {
+        "id": "RP2025ML_01",
+        "Title": "AR-BEiT : Adaptive Regression BEiT for Predicting Roasted Coffee Beans Agtron Score",
+        "Type": "Research Paper",
+        "Year": "2025",
+        "Description": "This research paper focuses on using phone camera to try and predict a bean's roast level (in agtron) by combining a image transformer with a regression head. This paper is written by 2 of my friends and I.",
+        "Skills": {
+            "Python": "During the experiment, python is used to make the regression head, main loop, as well as modifying the initial image transformer model.",
+            "Academic Writing": "Formal english is used to write the paper.",
+            "Machine Learning": "Methods such as gradual unfreezing were used to make the model better and better.",
+            "Problem Solving": "The research was treading new ground, and brought many new problems that had to be solved.",
+            "Data Analysis": "Results from the experiment needed to be analysed and compared to each other to create the final work."
+        },
         "Link": "",
-        "Image": "/images/nextJs.png"
+        "Image": "/images/agtron_compilation.png"
     },
     {
         "id": "WEB2025NJS_01",
@@ -26,6 +42,6 @@
             "TypeScript": "As Next.js supports TypeScript, I decided to use it for the whole site!"
         },
         "Link": "",
-        "Image": "/images/nextJs.png"
+        "Image": "/images/This_website_thumb.png"
     }
 ]
