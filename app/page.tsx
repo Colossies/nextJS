@@ -49,7 +49,19 @@ export default function Page() {
               className = "w-[50px] h-[50px]"
             />
             <span className = "ml-4 w-full -translate-x-[25px] text-center text-white text-xl">_bryan_chandra</span>
-          
+        </div>
+      </a>
+
+      <a href = "https://www.linkedin.com/in/bryan-chandra-954ba127b/?skipRedirect=true" rel = "noopener noreferrer" target = "_blank">
+          <div className = "flex flex-row w-[80%] lg:w-[400px] items-center p-2 rounded-lg border-2 border-[#C13584]">
+            <Image 
+              src = "/nextJS/images/linkedin_logo.png"
+              alt = ""
+              width = {50}
+              height = {50}
+              className = "w-[50px] h-[50px]"
+            />
+            <span className = "ml-4 w-full -translate-x-[25px] text-center text-white text-xl">Bryan Chandra</span>
         </div>
       </a>
       </div>
