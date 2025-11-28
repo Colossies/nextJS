@@ -37,7 +37,7 @@ export default function Page() {
         
         
       </div>
-      <div className = "flex flex-col w-full items-center justify-center">
+      <div className = "flex flex-col w-full items-center justify-center space-y-4">
         {/* Social Media */}
         <a href = "https://www.instagram.com/_bryan_chandra?igsh=dmhkZ3Rvc284OWg0" rel = "noopener noreferrer" target = "_blank">
           <div className = "flex flex-row w-[80%] lg:w-[400px] items-center p-2 rounded-lg border-2 border-[#C13584]">
@@ -53,7 +53,7 @@ export default function Page() {
       </a>
 
       <a href = "https://www.linkedin.com/in/bryan-chandra-954ba127b/?skipRedirect=true" rel = "noopener noreferrer" target = "_blank">
-          <div className = "flex flex-row w-[80%] lg:w-[400px] items-center p-2 rounded-lg border-2 border-[#C13584]">
+          <div className = "flex flex-row w-[80%] lg:w-[400px] items-center p-2 rounded-lg border-2 border-[#0A66C2]">
             <Image 
               src = "/nextJS/images/linkedin_logo.png"
               alt = ""
