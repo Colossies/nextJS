@@ -29,3 +29,9 @@ export async function get_skills_minor() {
   const r = JSON.parse(file);
   return r;
 }
+
+export async function get_applets() {
+  const file = await fs.readFile(process.cwd() + '/public/data/applets.json', 'utf8');
+  const r = JSON.parse(file);
+  return r;
+}
