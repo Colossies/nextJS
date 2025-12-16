@@ -8,8 +8,12 @@ const CHAT_PARTNER = "Alex";
 
 // The whole conversation
 const CONVERSATION_DATA = [
-  { sender: 'Alex', image: "/nextJS/images/nextJs.png", delay: 1500 },
-  { sender: 'Alex', message: "Selamat siang kak, cover mobil untuk Alphard Hybrid 2024 modelista ukuran tinggi bisa nggak ya?", delay: 1500 }
+  { sender: 'Alex', image: "/nextJS/images/nextJs.png", delay: 100 },
+  { sender: 'Alex', message: "Selamat siang gan, cover mobil untuk Alphard Hybrid 2024 modelista ukuran tinggi bisa nggak ya?", delay: 1400 },
+  { sender: 'Alex', message: "Maaf nanya dulu nih gan, soalnya pengalaman beli brand lain tidak tercover sampai bawah mobilnya.", delay: 1500 },
+  { sender: 'Alex', message: "Akhirnya saya complain ke sellernya. Mohon info ya gan, Terima kasih.", delay: 1000 },
+  { sender: 'Me', message: "Selamat siang kak! Untuk produk yang kakak link bisa langsung dipakai untuk mobil Alphard Hybrid 2024 kakak ya. Car covernya tutup sampai bawah kok kak, jadi tidak usah khawatir.", delay: 1300 },
+  { sender: 'Me', message: "Bahkan kalau ukurannya juga mau sampai ke ban juga bisa kak, tinggal kasih note saja dan kita bisa buat cover yang custom.", delay: 1200 }
 ];
 
 // Double green checkmark component
@@ -102,7 +106,7 @@ const MobileChatPage = () => {
                             height = {200}
                             blurDataURL='data:...'
                             placeholder='blur'
-                            className = "w-full h-auto object-cover"
+                            className = "w-[200px] h-auto object-cover"
                             />
                     }
                     {message.message &&<span className="leading-snug">{message.message}</span>}
