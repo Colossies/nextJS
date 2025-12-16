@@ -2,23 +2,19 @@
 
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Head from 'next/head';
+import Image  from 'next/image';
 
 const CHAT_PARTNER = "Alex";
 
+// The whole conversation
 const CONVERSATION_DATA = [
-  { id: 1, sender: 'Alex', message: "Hey, are you free this weekend?", delay: 1500 },
-  { id: 2, sender: 'Me', message: "Maybe! What were you thinking of doing?", delay: 2000 },
-  { id: 3, sender: 'Alex', message: "I heard there's a new cafe downtown with great coffee.", delay: 3500 },
-  { id: 4, sender: 'Me', message: "Ooh, I'm definitely in for that. Which day works best for you?", delay: 2500 },
-  { id: 5, sender: 'Alex', message: "Saturday afternoon?", delay: 1000 },
-  { id: 6, sender: 'Me', message: "Perfect. See you then!", delay: 1500 },
+  { sender: 'Alex', image: "/nextJS/images/nextJs.png", delay: 1500 },
+  { sender: 'Alex', message: "Selamat siang kak, cover mobil untuk Alphard Hybrid 2024 modelista ukuran tinggi bisa nggak ya?", delay: 1500 }
 ];
 
-// --- Revised Checkmark Component (Always Double Green) ---
+// Double green checkmark component
 const Checkmark = () => {
   const baseClasses = "ml-1.5 text-xs text-green-500";
-  
-  // Renders a double green checkmark always, simulating 'read' for the demo.
   return (
     <span className={baseClasses} aria-label="Read">
       ✓✓
@@ -26,28 +22,30 @@ const Checkmark = () => {
   );
 };
 
-// --- Main Chat Page Component ---
+// Product preview component
+const Product = () => {
+  return(
+    <></>
+  )
+}
+
 const MobileChatPage = () => {
   const [displayedMessages, setDisplayedMessages] = useState([]);
   const messagesEndRef = useRef(null);
 
-  // Function to scroll to the bottom of the chat
+  // Scroll to bottom function (duh)
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
   
-  // Custom hook/function to simulate the slow conversation
+  // Delay function
   const simulateConversation = useCallback(() => {
     let currentDelay = 0;
     
     CONVERSATION_DATA.forEach((chatMessage) => {
-      // Accumulate the delay to queue the messages correctly
       currentDelay += chatMessage.delay;
-      
-      // Set a timeout for each message to appear
       setTimeout(() => {
         setDisplayedMessages(prevMessages => [...prevMessages, chatMessage]);
-        // Scroll to the bottom when a new message appears
         scrollToBottom();
       }, currentDelay);
     });
@@ -58,7 +56,7 @@ const MobileChatPage = () => {
     simulateConversation();
   }, [simulateConversation]);
 
-  // Scroll to bottom whenever displayedMessages changes (ensures new messages are visible)
+  // Scroll to bottom whenever a message appears
   useEffect(() => {
     scrollToBottom();
   }, [displayedMessages.length]);
@@ -96,10 +94,21 @@ const MobileChatPage = () => {
                   className={`flex ${isPartner ? 'justify-start' : 'justify-end'}`}
                 >
                   <div className={`${bubbleClasses} ${isPartner ? partnerClasses : myClasses}`}>
-                    <span className="leading-snug">{message.message}</span>
+                    {message.image && 
+                      <Image
+                            src = {message.image}
+                            alt  =  "image"
+                            width = {200}
+                            height = {200}
+                            blurDataURL='data:...'
+                            placeholder='blur'
+                            className = "w-full h-auto object-cover"
+                            />
+                    }
+                    {message.message &&<span className="leading-snug">{message.message}</span>}
                     
                     {/* Double green checkmark */}
-                    {!isPartner && <Checkmark />}
+                    {/* {!isPartner && <Checkmark />} */}
                   </div>
                 </div>
               );
