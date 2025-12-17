@@ -33,6 +33,24 @@ const Product = () => {
   )
 }
 
+const DisplayConversationData = () => {
+  let str = "";
+  CONVERSATION_DATA.map((data, index) => {
+    let line = "{";
+    let values = Object.entries(data).map(([key, value]) => {
+      line = line + {key} + ":" + {value} + ", ";
+    
+    });
+    line = line + "},"
+    str = str + line;
+  });
+
+  str = str.substring(0, str.length - 1);
+  return str;
+}
+
+console.log(DisplayConversationData());
+
 const MobileChatPage = () => {
   const [displayedMessages, setDisplayedMessages] = useState([]);
   const messagesEndRef = useRef(null);
@@ -106,7 +124,7 @@ const MobileChatPage = () => {
                             height = {200}
                             blurDataURL='data:...'
                             placeholder='blur'
-                            className = "w-[200px] h-auto object-cover"
+                            className = "w-[200px] h-auto max-h-[400px] object-cover overflow-hidden"
                             />
                     }
                     {message.message &&<span className="leading-snug">{message.message}</span>}
