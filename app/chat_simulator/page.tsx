@@ -38,7 +38,7 @@ const DisplayConversationData = () => {
   CONVERSATION_DATA.map((data, index) => {
     let line = "{";
     let values = Object.entries(data).map(([key, value]) => {
-      line = line + {key} + ":" + {value} + ", ";
+      line = line + `${key}` + ":" + `${value}` + ", ";
     
     });
     line = line + "},"
