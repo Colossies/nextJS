@@ -8,8 +8,7 @@ const CHAT_PARTNER = "Alex";
 
 // The whole conversation
 const CONVERSATION_DATA = [
-  { sender: 'Alex', image: "/nextJS/images/nextJs.png", delay: 100 },
-  { sender: 'Alex', message: "Selamat siang gan, cover mobil untuk Alphard Hybrid 2024 modelista ukuran tinggi bisa nggak ya?", delay: 1400 },
+  { sender: 'Alex', image: "/nextJS/images/nextJs.png", message: "Selamat siang gan, cover mobil untuk Alphard Hybrid 2024 modelista ukuran tinggi bisa nggak ya?", delay: 100 },
   { sender: 'Alex', message: "Maaf nanya dulu nih gan, soalnya pengalaman beli brand lain tidak tercover sampai bawah mobilnya.", delay: 1500 },
   { sender: 'Alex', message: "Akhirnya saya complain ke sellernya. Mohon info ya gan, Terima kasih.", delay: 1000 },
   { sender: 'Me', message: "Selamat siang kak! Untuk produk yang kakak link bisa langsung dipakai untuk mobil Alphard Hybrid 2024 kakak ya. Car covernya tutup sampai bawah kok kak, jadi tidak usah khawatir.", delay: 1300 },
@@ -43,7 +42,7 @@ const DisplayConversationData = () => {
     });
     line = line + "},"
     str = str + line;
-  });
+  }); 
 
   str = str.substring(0, str.length - 1);
   return str;
@@ -111,29 +110,37 @@ const MobileChatPage = () => {
                 "bg-gray-200 text-black rounded-br-sm self-end flex items-end";
 
               return (
-                <div 
-                  key={message.id} 
-                  className={`flex ${isPartner ? 'justify-start' : 'justify-end'}`}
-                >
-                  <div className={`${bubbleClasses} ${isPartner ? partnerClasses : myClasses}`}>
-                    {message.image && 
-                      <Image
-                            src = {message.image}
-                            alt  =  "image"
-                            width = {200}
-                            height = {200}
-                            blurDataURL='data:...'
-                            placeholder='blur'
-                            className = "w-[200px] h-auto max-h-[400px] object-cover overflow-hidden"
-                            />
-                    }
-                    {message.message &&<span className="leading-snug">{message.message}</span>}
-                    
-                    {/* Double green checkmark */}
-                    {/* {!isPartner && <Checkmark />} */}
+                <>
+                {message.message && 
+                  <div 
+                    className={`flex ${isPartner ? 'justify-start' : 'justify-end'}`}
+                  >
+                    <div className={`${bubbleClasses} ${isPartner ? partnerClasses : myClasses}`}>
+                      <span className="leading-snug">{message.message}</span>
+                    </div>
                   </div>
-                </div>
-              );
+                }
+                {message.image && 
+                  <div 
+                    className={`flex ${isPartner ? 'justify-start' : 'justify-end'}`}
+                  >
+                    <div className={`${bubbleClasses} rounded-br-sm self-end flex items-end`}>
+                      {message.image && 
+                        <Image
+                              src = {message.image}
+                              alt  =  "image"
+                              width = {200}
+                              height = {200}
+                              blurDataURL='data:...'
+                              placeholder='blur'
+                              className = "w-[200px] h-auto max-h-[400px] object-cover overflow-hidden"
+                              />
+                      }
+                    </div>
+                  </div>
+                }
+                </>
+              ); 
             })}
             
             {/* Scroll anchor */}
