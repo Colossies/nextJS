@@ -8,12 +8,14 @@ const CHAT_PARTNER = "Alex";
 
 // The whole conversation
 const CONVERSATION_DATA = [
-  { sender: 'Alex', image: "/nextJS/images/nextJs.png", message: "Selamat siang gan, cover mobil untuk Alphard Hybrid 2024 modelista ukuran tinggi bisa nggak ya?", delay: 100 },
-  { sender: 'Alex', message: "Maaf nanya dulu nih gan, soalnya pengalaman beli brand lain tidak tercover sampai bawah mobilnya.", delay: 1500 },
-  { sender: 'Alex', message: "Akhirnya saya complain ke sellernya. Mohon info ya gan, Terima kasih.", delay: 1000 },
-  { sender: 'Me', message: "Selamat siang kak! Untuk produk yang kakak link bisa langsung dipakai untuk mobil Alphard Hybrid 2024 kakak ya. Car covernya tutup sampai bawah kok kak, jadi tidak usah khawatir.", delay: 1300 },
-  { sender: 'Me', message: "Bahkan kalau ukurannya juga mau sampai ke ban juga bisa kak, tinggal kasih note saja dan kita bisa buat cover yang custom.", delay: 1200 }
+  { id: 1, sender: 'Alex', image: "/nextJS/images/nextJs.png", message: "Selamat siang gan, cover mobil untuk Alphard Hybrid 2024 modelista ukuran tinggi bisa nggak ya?", delay: 100 },
+  { id: 2, sender: 'Alex', message: "Maaf nanya dulu nih gan, soalnya pengalaman beli brand lain tidak tercover sampai bawah mobilnya.", delay: 1500 },
+  { id: 3, sender: 'Alex', message: "Akhirnya saya complain ke sellernya. Mohon info ya gan, Terima kasih.", delay: 1000 },
+  { id: 4, sender: 'Me', message: "Selamat siang kak! Untuk produk yang kakak link bisa langsung dipakai untuk mobil Alphard Hybrid 2024 kakak ya. Car covernya tutup sampai bawah kok kak, jadi tidak usah khawatir.", delay: 1300 },
+  { id: 5, sender: 'Me', message: "Bahkan kalau ukurannya juga mau sampai ke ban juga bisa kak, tinggal kasih note saja dan kita bisa buat cover yang custom.", delay: 1200 }
 ];
+
+
 
 // Double green checkmark component
 const Checkmark = () => {
@@ -31,6 +33,7 @@ const Product = () => {
     <></>
   )
 }
+
 
 const DisplayConversationData = () => {
   let str = "";
@@ -50,7 +53,8 @@ const DisplayConversationData = () => {
 
 console.log(DisplayConversationData());
 
-const MobileChatPage = () => {
+// The page
+export default function Page() {
   const [displayedMessages, setDisplayedMessages] = useState([]);
   const messagesEndRef = useRef(null);
 
@@ -82,13 +86,52 @@ const MobileChatPage = () => {
     scrollToBottom();
   }, [displayedMessages.length]);
 
+  const modifyConversation = (id, content) => {
+    const data = CONVERSATION_DATA.filter(d => d.id === id)[0];
+    const mData = Object.assign(data, content);
+  }
+
+  const reorderConversation = (idx1, idx2) => {
+    const temp = CONVERSATION_DATA[idx1]
+    CONVERSATION_DATA[idx1] = CONVERSATION_DATA[idx2];
+    CONVERSATION_DATA[idx2] = temp;
+  }
+
+  // the actual content of the page
   return (
-    <>
-      <Head>
-        <title>{CHAT_PARTNER}</title>
-      </Head>
-      
-      {/* Outer container - Will be shaped like a mobile view */}
+    <div className = "w-full h-full flex flex-row">
+      {/* Data Editor */}
+      <div className = "flex flex-col">
+        {CONVERSATION_DATA.map((content) => {
+          return (
+            <div key = {content.id} className = "flex flex-row space-x-2">
+              {
+                Object.entries(content).map(([key, value]) => {
+                  if(key === 'id') return null;
+                  return (
+                    <div key = {key}>
+                      <label className = "w-20 text-xs uppercase">
+                        {key}
+                      </label>
+                      <input 
+                        type = "text"
+                        className = "text-xs"
+                        value = {value}
+                        onChange = {(e) => {
+                          modifyConversation(content.id, {[key]: e.target.value});
+                        }}
+                      >
+                      </input>
+                    </div>
+                  )
+                })
+              }
+            </div>
+          )
+        })}
+
+      </div>
+      {/* Outer container For Chat View */}
       <div className="flex justify-center bg-gray-100 min-h-screen">
         <div className="w-full max-w-sm bg-white shadow-xl flex flex-col h-screen">
           
@@ -124,7 +167,7 @@ const MobileChatPage = () => {
                   <div 
                     className={`flex ${isPartner ? 'justify-start' : 'justify-end'}`}
                   >
-                    <div className={`${bubbleClasses} rounded-br-sm self-end flex items-end`}>
+                    <div className={`${bubbleClasses} rounded-br-sm self-end flex items-end p-0`}>
                       {message.image && 
                         <Image
                               src = {message.image}
@@ -148,8 +191,6 @@ const MobileChatPage = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
-
-export default MobileChatPage;
