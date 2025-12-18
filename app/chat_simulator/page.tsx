@@ -15,7 +15,7 @@ const CONVERSATION_DATA = [
   { id: 5, sender: 'Me', message: "Bahkan kalau ukurannya juga mau sampai ke ban juga bisa kak, tinggal kasih note saja dan kita bisa buat cover yang custom.", delay: 1200 }
 ];
 
-
+const [conversations, setConversations] = useState(CONVERSATION_DATA);
 
 // Double green checkmark component
 const Checkmark = () => {
@@ -57,6 +57,7 @@ console.log(DisplayConversationData());
 export default function Page() {
   const [displayedMessages, setDisplayedMessages] = useState([]);
   const messagesEndRef = useRef(null);
+  const timeoutsRef = useRef([]);
 
   // Scroll to bottom function (duh)
   const scrollToBottom = () => {
@@ -65,16 +66,20 @@ export default function Page() {
   
   // Delay function
   const simulateConversation = useCallback(() => {
+    timeoutsRef.current.forEach(clearTimeout);
+    timeoutsRef.current = [];
+    setDisplayedMessages([]);
     let currentDelay = 0;
     
     CONVERSATION_DATA.forEach((chatMessage) => {
       currentDelay += chatMessage.delay;
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         setDisplayedMessages(prevMessages => [...prevMessages, chatMessage]);
         scrollToBottom();
       }, currentDelay);
+      timeoutsRef.current.push(timer);
     });
-  }, []);
+  }, [conversations]);
 
   // Start the simulation when the component mounts
   useEffect(() => {
@@ -100,7 +105,7 @@ export default function Page() {
 
   // the actual content of the page
 
-  const [conversations, setConversations] = useState(CONVERSATION_DATA);
+
   return (
     
     <div className = "w-full h-full flex flex-row justify-between">
@@ -132,7 +137,9 @@ export default function Page() {
               }
             </div>
           )
+          
         })}
+        <button onClick = {simulateConversation}> Restart Conversation </button>
 
       </div>
       {/* Outer container For Chat View */}
