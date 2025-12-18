@@ -15,7 +15,7 @@ const CONVERSATION_DATA = [
   { id: 5, sender: 'Me', message: "Bahkan kalau ukurannya juga mau sampai ke ban juga bisa kak, tinggal kasih note saja dan kita bisa buat cover yang custom.", delay: 1200 }
 ];
 
-const [conversations, setConversations] = useState(CONVERSATION_DATA);
+
 
 // Double green checkmark component
 const Checkmark = () => {
@@ -55,6 +55,7 @@ console.log(DisplayConversationData());
 
 // The page
 export default function Page() {
+  const [conversations, setConversations] = useState(CONVERSATION_DATA);
   const [displayedMessages, setDisplayedMessages] = useState([]);
   const messagesEndRef = useRef(null);
   const timeoutsRef = useRef([]);
