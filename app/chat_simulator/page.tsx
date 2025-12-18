@@ -72,7 +72,7 @@ export default function Page() {
     setDisplayedMessages([]);
     let currentDelay = 0;
     
-    CONVERSATION_DATA.forEach((chatMessage) => {
+    conversations.forEach((chatMessage) => {
       currentDelay += chatMessage.delay;
       const timer = setTimeout(() => {
         setDisplayedMessages(prevMessages => [...prevMessages, chatMessage]);
