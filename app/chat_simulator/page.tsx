@@ -87,8 +87,9 @@ export default function Page() {
   }, [displayedMessages.length]);
 
   const modifyConversation = (id, content) => {
-    const data = CONVERSATION_DATA.filter(d => d.id === id)[0];
-    const mData = Object.assign(data, content);
+    // const data = CONVERSATION_DATA.filter(d => d.id === id)[0];
+    // const mData = Object.assign(data, content);
+    setConversations(oData => oData.map(item => item.id === id ? {...item, ...content} : item));
   }
 
   const reorderConversation = (idx1, idx2) => {
@@ -98,11 +99,14 @@ export default function Page() {
   }
 
   // the actual content of the page
+
+  const [conversations, setConversations] = useState(CONVERSATION_DATA);
   return (
-    <div className = "w-full h-full flex flex-row">
+    
+    <div className = "w-full h-full flex flex-row justify-between">
       {/* Data Editor */}
       <div className = "flex flex-col">
-        {CONVERSATION_DATA.map((content) => {
+        {conversations.map((content) => {
           return (
             <div key = {content.id} className = "flex flex-row space-x-2">
               {
@@ -110,7 +114,7 @@ export default function Page() {
                   if(key === 'id') return null;
                   return (
                     <div key = {key}>
-                      <label className = "w-20 text-xs uppercase">
+                      <label className = "w-20 text-xs uppercase space-x-2">
                         {key}
                       </label>
                       <input 
