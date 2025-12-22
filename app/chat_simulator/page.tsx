@@ -15,7 +15,7 @@ const CONVERSATION_DATA = [
   { id: 5, sender: 'Me', message: "Bahkan kalau ukurannya juga mau sampai ke ban juga bisa kak, tinggal kasih note saja dan kita bisa buat cover yang custom.", delay: 1200 }
 ];
 
-
+let conversationId = CONVERSATION_DATA.length + 1;
 
 // Double green checkmark component
 const Checkmark = () => {
@@ -92,6 +92,14 @@ export default function Page() {
     scrollToBottom();
   }, [displayedMessages.length]);
 
+  const removeDialog = (id) => {
+    setConversations(oData => oData.filter(item => item.id !== id));
+  }
+
+  const addDialog = (content) => {
+
+  }
+
   const modifyConversation = (id, content) => {
     // const data = CONVERSATION_DATA.filter(d => d.id === id)[0];
     // const mData = Object.assign(data, content);
@@ -106,36 +114,49 @@ export default function Page() {
 
   // the actual content of the page
 
+  // const dropEvent = (event) => {
+  //   event.preventDefault();
+  //   if(event.target.classList.contains("dataDropzone")) {
+  //     const keyTarget = event.target.key;
+  //     const keySelf = 
+  //   }
+  // }
 
   return (
     
     <div className = "w-full h-full flex flex-row justify-between">
       {/* Data Editor */}
-      <div className = "flex flex-col">
+      <div className = "flex flex-col space-y-2">
         {conversations.map((content) => {
           return (
-            <div key = {content.id} className = "flex flex-row space-x-2">
-              {
-                Object.entries(content).map(([key, value]) => {
-                  if(key === 'id') return null;
-                  return (
-                    <div key = {key}>
-                      <label className = "w-20 text-xs uppercase space-x-2">
-                        {key}
-                      </label>
-                      <input 
-                        type = "text"
-                        className = "text-xs"
-                        value = {value}
-                        onChange = {(e) => {
-                          modifyConversation(content.id, {[key]: e.target.value});
-                        }}
-                      >
-                      </input>
-                    </div>
-                  )
-                })
-              }
+            <div key = {`${content.id}_outer`} className = "p-0 dataDropzone bg-gray-200">
+              <div key = {content.id} className = "flex flex-row space-x-2">
+                {/* Dragger thing */}
+                <button key = {`${content.id}_drag`} className = "h-full m-r-1" onClick = {() => {}}>
+                  dragbtn
+                </button>
+                {
+                  Object.entries(content).map(([key, value]) => {
+                    if(key === 'id') return null;
+                    return (
+                      <div key = {key} className = "flex flex-col space-y-1">
+                        <label className = "w-20 text-xs uppercase space-x-2">
+                          {key}
+                        </label>
+                        <input 
+                          type = "text"
+                          className = "text-xs"
+                          value = {value}
+                          onChange = {(e) => {
+                            modifyConversation(content.id, {[key]: e.target.value});
+                          }}
+                        >
+                        </input>
+                      </div>
+                    )
+                  })
+                }
+              </div>
             </div>
           )
           
