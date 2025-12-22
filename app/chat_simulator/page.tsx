@@ -126,7 +126,7 @@ export default function Page() {
     
     <div className = "w-full h-full flex flex-row justify-between">
       {/* Data Editor */}
-      <div className = "flex flex-col space-y-2">
+      <div className = "flex flex-col space-y-2 p-2 rounded-md">
         {conversations.map((content) => {
           return (
             <div key = {`${content.id}_outer`} className = "p-0 dataDropzone bg-gray-200">
