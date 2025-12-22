@@ -103,36 +103,83 @@ export default function Page() {
   const modifyConversation = (id, content) => {
     // const data = CONVERSATION_DATA.filter(d => d.id === id)[0];
     // const mData = Object.assign(data, content);
-    setConversations(oData => oData.map(item => item.id === id ? {...item, ...content} : item));
+    timeoutsRef.current.forEach(clearTimeout);
+    timeoutsRef.current = [];
+    const timer = setTimeout(() => {
+      setConversations(oData => oData.map(item => item.id === id ? {...item, ...content} : item));
+    }, 1000);
+    timeoutsRef.current.push(timer);
   }
 
-  const reorderConversation = (idx1, idx2) => {
-    const temp = CONVERSATION_DATA[idx1]
-    CONVERSATION_DATA[idx1] = CONVERSATION_DATA[idx2];
-    CONVERSATION_DATA[idx2] = temp;
+  const reorderConversation = (id1, id2) => {
+    if (id1 === id2) return;
+    const data = [...conversations];
+    const index1 = data.findIndex(i => i.id === id1);
+    const index2 = data.findIndex(i => i.id === id2);
+
+    const [old] = data.splice(index1, 1);
+    data.splice(index2, 0, old);
+    setConversations(data);
+
+    return [index1, index2];
   }
+
+  // Drag handlers
+  const dragStartEvent = (event, id) => {
+    event.dataTransfer.setData("draggedId", id);
+    event.target.classList.add("opacity-50");
+
+  }
+
+  const dragOverEvent = (event) => {
+    event.preventDefault();
+  }
+
+  const dropEvent = (event) => {
+    event.preventDefault();
+    if(event.target.classList.contains("dataDropzone")) {
+      const id1 = event.dataTransfer.getData("draggedId");;
+      const id2 = event.target.getAttribute('data-id');
+
+      if(id1 && id2 && id1 !== id2) {
+        reorderConversation(Number(id1), Number(id2));
+      }
+    }
+  }
+
 
   // the actual content of the page
-
-  // const dropEvent = (event) => {
-  //   event.preventDefault();
-  //   if(event.target.classList.contains("dataDropzone")) {
-  //     const keyTarget = event.target.key;
-  //     const keySelf = 
-  //   }
-  // }
-
+  const [canDrag, setCanDrag] = useState(false);
   return (
     
     <div className = "w-full h-full flex flex-row justify-between">
       {/* Data Editor */}
-      <div className = "flex flex-col space-y-2 p-2 rounded-md">
+      <div className = "flex flex-col space-y-2 p-2">
         {conversations.map((content) => {
+          
           return (
-            <div key = {`${content.id}_outer`} className = "p-0 dataDropzone bg-gray-200">
+            <div data-id = {content.id} key = {`${content.id}_outer`} className = "p-0 dataDropzone bg-gray-200 rounded-md p-2"
+             draggable = {canDrag}
+             onDragStart = {(e) => {
+              dragStartEvent(e, content.id);
+             }}
+             onDragOver = {(e) => {
+              dragOverEvent(e);
+             }}
+             onDrop = {(e) => {
+              dropEvent(e);
+             }}
+             >
               <div key = {content.id} className = "flex flex-row space-x-2">
                 {/* Dragger thing */}
-                <button key = {`${content.id}_drag`} className = "h-full m-r-1" onClick = {() => {}}>
+                <button key = {`${content.id}_drag`} className = "h-full m-r-1"
+                 onMouseEnter = {() => {
+                  setCanDrag(true);
+                 }}
+                 onMouseLeave = {() => {
+                  setCanDrag(false);
+                 }}
+                >
                   dragbtn
                 </button>
                 {
