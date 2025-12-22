@@ -131,13 +131,17 @@ export default function Page() {
 
   }
 
+  const dragEnd = (event) => {
+    event.target.classList.remove("opacity-50");
+  }
+
   const dragOverEvent = (event) => {
     event.preventDefault();
   }
 
   const dropEvent = (event) => {
     event.preventDefault();
-    if(event.target.classList.contains("dataDropzone")) {
+    if(event.currentTarget.classList.contains("dataDropzone")) {
       const id1 = event.dataTransfer.getData("draggedId");;
       const id2 = event.target.getAttribute('data-id');
 
