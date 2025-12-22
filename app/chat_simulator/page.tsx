@@ -143,7 +143,7 @@ export default function Page() {
     event.preventDefault();
     if(event.currentTarget.classList.contains("dataDropzone")) {
       const id1 = event.dataTransfer.getData("draggedId");;
-      const id2 = event.target.getAttribute('data-id');
+      const id2 = event.currentTarget.getAttribute('data-id');
 
       if(id1 && id2 && id1 !== id2) {
         reorderConversation(Number(id1), Number(id2));
