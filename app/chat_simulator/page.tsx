@@ -9,10 +9,10 @@ const CHAT_PARTNER = "Alex";
 // The whole conversation
 const CONVERSATION_DATA = [
   { id: 1, sender: 'Alex', image: "/nextJS/images/nextJs.png", message: "Selamat siang gan, cover mobil untuk Alphard Hybrid 2024 modelista ukuran tinggi bisa nggak ya?", delay: 100 },
-  { id: 2, sender: 'Alex', message: "Maaf nanya dulu nih gan, soalnya pengalaman beli brand lain tidak tercover sampai bawah mobilnya.", delay: 1500 },
-  { id: 3, sender: 'Alex', message: "Akhirnya saya complain ke sellernya. Mohon info ya gan, Terima kasih.", delay: 1000 },
-  { id: 4, sender: 'Me', message: "Selamat siang kak! Untuk produk yang kakak link bisa langsung dipakai untuk mobil Alphard Hybrid 2024 kakak ya. Car covernya tutup sampai bawah kok kak, jadi tidak usah khawatir.", delay: 1300 },
-  { id: 5, sender: 'Me', message: "Bahkan kalau ukurannya juga mau sampai ke ban juga bisa kak, tinggal kasih note saja dan kita bisa buat cover yang custom.", delay: 1200 }
+  { id: 2, sender: 'Alex', image: "", message: "Maaf nanya dulu nih gan, soalnya pengalaman beli brand lain tidak tercover sampai bawah mobilnya.", delay: 1500 },
+  { id: 3, sender: 'Alex', image: "", message: "Akhirnya saya complain ke sellernya. Mohon info ya gan, Terima kasih.", delay: 1000 },
+  { id: 4, sender: 'Me', image: "", message: "Selamat siang kak! Untuk produk yang kakak link bisa langsung dipakai untuk mobil Alphard Hybrid 2024 kakak ya. Car covernya tutup sampai bawah kok kak, jadi tidak usah khawatir.", delay: 1300 },
+  { id: 5, sender: 'Me', image: "", message: "Bahkan kalau ukurannya juga mau sampai ke ban juga bisa kak, tinggal kasih note saja dan kita bisa buat cover yang custom.", delay: 1200 }
 ];
 
 let conversationId = CONVERSATION_DATA.length + 1;
@@ -97,18 +97,21 @@ export default function Page() {
   }
 
   const addDialog = (content) => {
+    setConversations((data) => {
+      const newEntry = {
+        id: conversationId,
+        ...content
+      };
+      conversationId++;
 
+      return [...data, newEntry];
+    });
   }
 
   const modifyConversation = (id, content) => {
     // const data = CONVERSATION_DATA.filter(d => d.id === id)[0];
     // const mData = Object.assign(data, content);
-    timeoutsRef.current.forEach(clearTimeout);
-    timeoutsRef.current = [];
-    const timer = setTimeout(() => {
-      setConversations(oData => oData.map(item => item.id === id ? {...item, ...content} : item));
-    }, 1000);
-    timeoutsRef.current.push(timer);
+    setConversations(oData => oData.map(item => item.id === id ? {...item, ...content} : item));
   }
 
   const reorderConversation = (id1, id2) => {
@@ -142,7 +145,7 @@ export default function Page() {
   const dropEvent = (event) => {
     event.preventDefault();
     if(event.currentTarget.classList.contains("dataDropzone")) {
-      const id1 = event.dataTransfer.getData("draggedId");;
+      const id1 = event.dataTransfer.getData("draggedId");
       const id2 = event.currentTarget.getAttribute('data-id');
 
       if(id1 && id2 && id1 !== id2) {
@@ -187,7 +190,7 @@ export default function Page() {
                   setCanDrag(false);
                  }}
                 >
-                  dragbtn
+                  ⋮⋮
                 </button>
                 {
                   Object.entries(content).map(([key, value]) => {
@@ -216,6 +219,15 @@ export default function Page() {
           
         })}
         <button onClick = {simulateConversation}> Restart Conversation </button>
+        <button onClick = {() => {
+          const content = {
+            sender: "",
+            image: "",
+            message: "",
+            delay: 1000
+          }
+          addDialog(content);
+        }}> Add Dialog </button>
 
       </div>
       {/* Outer container For Chat View */}
