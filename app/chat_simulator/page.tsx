@@ -131,7 +131,7 @@ export default function Page() {
 
   }
 
-  const dragEnd = (event) => {
+  const dragEndEvent = (event) => {
     event.target.classList.remove("opacity-50");
   }
 
@@ -172,6 +172,9 @@ export default function Page() {
              }}
              onDrop = {(e) => {
               dropEvent(e);
+             }}
+             onDragEnd = {(e) => {
+              dragEndEvent(e);
              }}
              >
               <div key = {content.id} className = "flex flex-row space-x-2">
