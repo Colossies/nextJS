@@ -73,7 +73,7 @@ export default function Page() {
     let currentDelay = 0;
     
     conversations.forEach((chatMessage) => {
-      currentDelay += chatMessage.delay;
+      currentDelay += Number(chatMessage.delay);
       const timer = setTimeout(() => {
         setDisplayedMessages(prevMessages => [...prevMessages, chatMessage]);
         scrollToBottom();
