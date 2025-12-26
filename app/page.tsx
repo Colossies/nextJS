@@ -1,7 +1,10 @@
 import OtherWorks from './sections/other_works'
 import Timeline from './sections/timeline'
 import Skills from './sections/skills'
+import Applets from './sections/applets'
 import Image from 'next/image';
+
+
 
 export default function Page() {
   return (
@@ -34,7 +37,7 @@ export default function Page() {
           </button>
         </a> */}
 
-        
+          
         
       </div>
       <div className = "flex flex-col w-full items-center justify-center space-y-4">
@@ -66,6 +69,7 @@ export default function Page() {
       </a>
       </div>
     </div>
+    <Applets />
     <Skills />
     <OtherWorks/>
     <Timeline />
