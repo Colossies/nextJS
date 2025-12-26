@@ -5,7 +5,11 @@ export default async function Applets() {
     const applets = await getApplets();
 
     return (
-       <div className = "w-full m-0 flex flex-row overflow-x-auto overscroll-contain space-x-4">
+    <>
+        <h2 className = "w-full text-center m-4">
+            APPLETS
+        </h2>
+        <div className = "w-full m-0 flex flex-row overflow-x-auto overscroll-contain space-x-4 justify-center">
         {applets.map((applet, index) => (
             <a href = {applet.link}>
                 <div key = {applet.id} className = "flex flex-col w-150 h-150 p-10">
@@ -21,11 +25,12 @@ export default async function Applets() {
                         />
                     </div>
                     <div>
-                        <h3>{applet.name}</h3>
+                        <h3 className = "text-center w-full">{applet.name}</h3>
                     </div>
                 </div>
             </a>
         ))}
-       </div> 
+        </div> 
+    </>
     );
 }
