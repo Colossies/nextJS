@@ -3,7 +3,7 @@
         "id": "applet_chatsimulator",
         "name": "Chat Simulator",
         "image": "/nextJS/images/chat_simulator.png",
-        "link": "/chat_simulator",
+        "link": "/nextJS/chat_simulator",
         "desc": ""
     }
 ]
