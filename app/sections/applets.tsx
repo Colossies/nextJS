@@ -6,7 +6,7 @@ export default async function Applets() {
 
     return (
     <>
-        <h2 className = "w-full text-center m-4">
+        <h2 className = "w-full text-center m-4 text-5xl mb-10 font-bold self-center">
             APPLETS
         </h2>
         <div className = "w-full m-0 flex flex-row overflow-x-auto overscroll-contain space-x-4 justify-center">
