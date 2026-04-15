@@ -4,7 +4,10 @@ import Skills from './sections/skills'
 import Applets from './sections/applets'
 import Image from 'next/image';
 
-
+// image imports
+import instagramLogo from '/public/images/instagram_logo.png';
+import pp from '/public/images/pp.png';
+import linkedin_logo from '/public/images/linkedin_logo.png';
 
 export default function Page() {
   return (
@@ -12,9 +15,9 @@ export default function Page() {
     <div className = "min-h-svh bg-gradient-to-br to-[#435979] from-[#314158] py-16 flex flex-col items-center">
       <div className = "flex flex-col text-center mb-[5%] w-full items-center">
         {/* Profile Picture, short intro */}
-        <div className = "mt-16 lg:mt-[12vh] rounded-full p-0 w-fit h-fit">
+        <div className = "mt-12 lg:mt-[12vh] rounded-full p-0 w-fit h-fit">
           <Image
-            src = "/nextJS/images/pp.png" 
+            src = {pp}
             alt = "Bryan Chandra"
             width = {150}
             height = {150}
@@ -45,7 +48,7 @@ export default function Page() {
         <a href = "https://www.instagram.com/_bryan_chandra?igsh=dmhkZ3Rvc284OWg0" rel = "noopener noreferrer" target = "_blank">
           <div className = "flex flex-row w-[80%] lg:w-[400px] items-center p-2 rounded-lg border-2 border-[#C13584]">
             <Image 
-              src = "/nextJS/images/instagram_logo.png"
+              src = {instagramLogo}
               alt = ""
               width = {50}
               height = {50}
@@ -58,7 +61,7 @@ export default function Page() {
       <a href = "https://www.linkedin.com/in/bryan-chandra-954ba127b/?skipRedirect=true" rel = "noopener noreferrer" target = "_blank">
           <div className = "flex flex-row w-[80%] lg:w-[400px] items-center p-2 rounded-lg border-2 border-[#0A66C2]">
             <Image 
-              src = "/nextJS/images/linkedin_logo.png"
+              src = {linkedin_logo}
               alt = ""
               width = {50}
               height = {50}

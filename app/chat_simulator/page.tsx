@@ -4,11 +4,14 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import Head from 'next/head';
 import Image  from 'next/image';
 
-const CHAT_PARTNER = "Alex";
+// image imports
+
+
+let chatPartner = "Alex";
 
 // The whole conversation
 const CONVERSATION_DATA = [
-  { id: 1, sender: 'Alex', image: "/nextJS/images/ccar_cover_01.jpg", message: "Selamat siang gan, cover mobil untuk Alphard Hybrid 2024 modelista ukuran tinggi bisa nggak ya?", delay: 100 },
+  { id: 1, sender: 'Alex', image: "/nextJS/images/car_cover_01.jpg", message: "Selamat siang gan, cover mobil untuk Alphard Hybrid 2024 modelista ukuran tinggi bisa nggak ya?", delay: 100 },
   { id: 2, sender: 'Alex', image: "", message: "Maaf nanya dulu nih gan, soalnya pengalaman beli brand lain tidak tercover sampai bawah mobilnya.", delay: 1500 },
   { id: 3, sender: 'Alex', image: "", message: "Akhirnya saya complain ke sellernya. Mohon info ya gan, Terima kasih.", delay: 1000 },
   { id: 4, sender: 'Me', image: "", message: "Selamat siang kak! Untuk produk yang kakak link bisa langsung dipakai untuk mobil Alphard Hybrid 2024 kakak ya. Car covernya tutup sampai bawah kok kak, jadi tidak usah khawatir.", delay: 1300 },
@@ -159,11 +162,10 @@ export default function Page() {
   const [canDrag, setCanDrag] = useState(false);
   return (
     
-    <div className = "w-full h-full flex flex-row justify-between">
+    <div className = "w-full h-full flex flex-row justify-between" key = "page_primary">
       {/* Data Editor */}
       <div className = "flex flex-col space-y-2 p-2">
         {conversations.map((content) => {
-          
           return (
             <div data-id = {content.id} key = {`${content.id}_outer`} className = "p-0 dataDropzone bg-gray-200 rounded-md p-2"
              draggable = {canDrag}
@@ -182,7 +184,7 @@ export default function Page() {
              >
               <div key = {content.id} className = "flex flex-row space-x-2">
                 {/* Dragger thing */}
-                <button key = {`${content.id}_drag`} className = "h-full m-r-1"
+                <button key = {`${content.id}_drag`} className = "h-full m-r-1 justify-center align-center"
                  onMouseEnter = {() => {
                   setCanDrag(true);
                  }}
@@ -216,7 +218,6 @@ export default function Page() {
               </div>
             </div>
           )
-          
         })}
         <button onClick = {simulateConversation}> Restart Conversation </button>
         <button onClick = {() => {
@@ -236,13 +237,13 @@ export default function Page() {
           
           {/* Chat Header */}
           <header className="bg-black text-white p-4 flex items-center shadow-md z-10">
-            <h1 className="text-lg font-semibold ml-2">{CHAT_PARTNER}</h1>
+            <h1 className="text-lg font-semibold ml-2">{chatPartner}</h1>
           </header>
 
           {/* Chat Body Container */}
           <div className="flex-1 overflow-y-auto p-4 space-y-3">
             {displayedMessages.map((message) => {
-              const isPartner = message.sender === CHAT_PARTNER;
+              const isPartner = message.sender === chatPartner;
               const bubbleClasses = "max-w-[80%] p-2.5 rounded-xl break-words relative";
               // Partner bubble
               const partnerClasses = 

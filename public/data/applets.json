@@ -2,8 +2,8 @@
     {
         "id": "applet_chatsimulator",
         "name": "Chat Simulator",
-        "image": "/nextJS/images/chat_simulator.png",
-        "link": "/nextJS/chat_simulator",
+        "image": "/images/chat_simulator.png",
+        "link": "/chat_simulator",
         "desc": ""
     }
 ]

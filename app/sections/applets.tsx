@@ -1,5 +1,7 @@
 import  Image  from 'next/image';
 import {get_applets as getApplets} from "@/lib/exp";
+import Link from 'next/link';
+
 
 export default async function Applets() {
     const applets = await getApplets();
@@ -11,7 +13,7 @@ export default async function Applets() {
         </h2>
         <div className = "w-full m-0 flex flex-row overflow-x-auto overscroll-contain space-x-4 justify-center">
         {applets.map((applet, index) => (
-            <a href = {applet.link}>
+            <Link href = {applet.link}>
                 <div key = {applet.id} className = "flex flex-col w-150 h-150 p-10">
                     <div>
                         <Image 
@@ -28,7 +30,7 @@ export default async function Applets() {
                         <h3 className = "text-center w-full">{applet.name}</h3>
                     </div>
                 </div>
-            </a>
+            </Link>
         ))}
         </div> 
     </>
