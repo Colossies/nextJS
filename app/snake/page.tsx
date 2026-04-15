@@ -41,7 +41,11 @@ export default function Page() {
         };
         window.addEventListener('keydown', handleKey);
 
-        return () => window.removeEventListener('keydown', handleKey);
+        return () => {
+            game.stop();
+            gameRef.current = null;
+            window.removeEventListener('keydown', handleKey);
+        }
     }, []);
 
     return(

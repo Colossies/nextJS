@@ -4,6 +4,13 @@
         "name": "Chat Simulator",
         "image": "/images/chat_simulator.png",
         "link": "/chat_simulator",
-        "desc": ""
+        "desc": "A chat simulator with timer for utility purposes."
+    },
+    {
+        "id": "applet_snek",
+        "name": "Snake Game",
+        "image": "/images/snake.png",
+        "link": "/snake",
+        "desc": "A snake game"
     }
 ]

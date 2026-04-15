@@ -114,4 +114,8 @@ export class SnakeGame {
     getScore() { return this.score; }
     isGameOver() { return this.gameOver; }
     getMap() { return this.map; } // useful for initial render
+
+    stop() {
+        this.gameOver = true;
+    }
 }
