@@ -7,7 +7,7 @@ export default async function Skills() {
       <div className = "bg-[#bbc1ca] w-[90%] lg:w-[55%] lg:h-[60%] rounded-3xl p-2 flex flex-col lg:flex-row items-center justify-around">
         <div className = "p-0 rounded-xl mb-8 lg:mb-0 w-[95%] lg:w-[30%] h-[400px]">
           <Image
-            src = '/images/neural_network.svg'
+            src = '/nextJS/images/neural_network.svg'
             alt  =  ''
             width = {300}
             height = {300}
@@ -22,7 +22,7 @@ export default async function Skills() {
         </div>
         <div className = "p-0 rounded-xl mb-8 lg:mb-0 w-[95%] lg:w-[30%] h-[400px]">
           <Image
-            src = '/images/data_analysis.svg'
+            src = '/nextJS/images/data_analysis.svg'
             alt  =  ''
             width = {300}
             height = {300}
@@ -37,7 +37,7 @@ export default async function Skills() {
         </div>
         <div className = "bg-[#bbc1ca p-0 rounded-xl mb-8 lg:mb-0 w-[95%] lg:w-[30%] h-[400px] ">
           <Image
-            src = '/images/website_development.svg'
+            src = '/nextJS/images/website_development.svg'
             alt  =  ''
             width = {300}
             height = {300}
