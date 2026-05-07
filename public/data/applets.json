@@ -2,7 +2,7 @@
     {
         "id": "applet_chatsimulator",
         "name": "Chat Simulator",
-        "image": "/public/images/chat_simulator.png",
+        "image": "/images/chat_simulator.png",
         "link": "/chat_simulator",
         "desc": "A chat simulator with timer for utility purposes."
     },

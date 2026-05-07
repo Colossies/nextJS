@@ -16,14 +16,10 @@ export default async function Applets() {
             <Link href = {applet.link}>
                 <div key = {applet.id} className = "flex flex-col w-150 h-150 p-10">
                     <div>
-                        <Image 
-                            src = {applet.image}
-                            alt  =  {applet.name}
-                            width = {120}
-                            height = {120}
-                            blurDataURL='data:...'
-                            placeholder='blur'
-                            className = "w-120 h-120 object-cover"
+                        <img
+                            src={applet.image}
+                            alt={applet.name}
+                            className="w-[120px] h-[120px] object-cover"
                         />
                     </div>
                     <div>
