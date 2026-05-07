@@ -9,7 +9,7 @@
     {
         "id": "applet_snek",
         "name": "Snake Game",
-        "image": "/images/snake.png",
+        "image": "/nextJS/images/snake.png",
         "link": "/snake",
         "desc": "A snake game"
     }

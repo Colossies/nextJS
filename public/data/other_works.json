@@ -28,7 +28,7 @@
             "Data Analysis": "Results from the experiment needed to be analysed and compared to each other to create the final work."
         },
         "Link": "https://doi.org/10.1109/IAICT65714.2025.11100871",
-        "Image": "/images/agtron_compilation.png"
+        "Image": "/nextJS/images/agtron_compilation.png"
     },
     {
         "id": "WEB2025NJS_01",
@@ -42,6 +42,6 @@
             "TypeScript": "As Next.js supports TypeScript, I decided to use it for the whole site!"
         },
         "Link": "",
-        "Image": "/images/This_website_thumb.png"
+        "Image": "/nextJS/images/This_website_thumb.png"
     }
 ]
