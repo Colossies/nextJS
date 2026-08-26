@@ -1,14 +1,5 @@
 [
     {
-        "id": "edu_hs_penabur_start",
-        "title": "SMAK Penabur Kota Tangerang",
-        "type": "Education",
-        "subtype": "High School",
-        "description": "I attended Penabur, which is a reputable high school in Indonesia. Penabur offers two specializations: social science, and natural science. From the two, I took natural science, which offers me more advanced math, physics, and gives me the oppurtunity to study chemistry.",
-        "date": "2018 - 2021",
-        "google_maps": "https://maps.app.goo.gl/91ne56zQ19ZPME9z8"
-    },
-    {
         "id": "edu_uni_binus_cs_start",
         "title": "Binus University (Computer Science)",
         "type": "Education",

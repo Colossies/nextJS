@@ -1,7 +1,6 @@
 
 import Image from 'next/image';
 import {get_skills_major as getSkillsMajor} from "@/lib/exp";
-import Level from "../components/level";
 export async function Skills() {
     const skills_major = await getSkillsMajor()
     return (
@@ -25,7 +24,6 @@ export async function Skills() {
                         <div className = "">
                             {/* Main part and description */}
                             <h2 className = "tracking-wide font-bold text-4xl mb-4">{o.name}</h2>
-                            <Level level = {o.level}/>
                             <p className = "">{o.remark}</p>
                         </div>
                         <div className = "">
